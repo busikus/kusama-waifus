@@ -1,4 +1,3 @@
-
 import os
 import re
 import requests
@@ -12,7 +11,7 @@ from math import floor
 app = FastAPI()
 # CORS configuration
 
-REPLICATE_API_TOKEN=""
+REPLICATE_API_TOKEN = os.getenv("REPLICATE_API_TOKEN", "")
 client = replicate.Client(api_token=REPLICATE_API_TOKEN)
 
 def extract_hash_from_url(url):
