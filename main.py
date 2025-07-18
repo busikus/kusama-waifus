@@ -10,7 +10,6 @@ from upstash_redis import Redis
 import base64
 
 app = FastAPI()
-# CORS configuration
 
 REPLICATE_API_TOKEN = os.getenv("REPLICATE_API_TOKEN", "")
 REDIS_URL = os.getenv("REDIS_URL", "")
@@ -44,15 +43,10 @@ def extract_hash_from_url(url):
 def hex_to_seed(hex_string):
     """Convert hex string to integer seed"""
     try:
-        # Clean hex string
+
         hex_string = hex_string.replace('0x', '').replace('#', '')
-
-        # Convert hex to int
         seed = int(hex_string, 16)
-
-        # Ensure seed is within 32-bit range
         seed = seed % (2**32) % 100
-
         return seed
 
     except ValueError:
