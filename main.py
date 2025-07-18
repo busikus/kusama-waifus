@@ -178,12 +178,12 @@ async def cache_stats():
 
 def main():
     """Test the API"""
-    test_hashes = [ "72ea9faf9bc36c7f473b37a608f9b3d66335de3513b5ef52bfd34d8f2d612811","886b9e94128d19c95514b91b2bdbda2adedad860b8933bc6e7e3c90cb2fa784b", "25a2174a1ba5be0637bce0e68101cf1511f109f27a398826630de1e6d0d4e573"]
-    # hash_value = "886b9e94128d19c95514b91b2bdbda2adedad860b8933bc6e7e3c90cb2fa784b"
-    for hash_value in test_hashes:
-        requests.get(f"http://localhost:8000/?hash={hash_value}")
-        print(f"Response status: {response.status_code}")
-        print(f"Cache status: {response.headers.get('X-Cache', 'UNKNOWN')}")
+    # test_hashes = [ "72ea9faf9bc36c7f473b37a608f9b3d66335de3513b5ef52bfd34d8f2d612811","886b9e94128d19c95514b91b2bdbda2adedad860b8933bc6e7e3c90cb2fa784b", "25a2174a1ba5be0637bce0e68101cf1511f109f27a398826630de1e6d0d4e573"]
+    hash_value = "886b9e94128d19c95514b91b2bdbda2adedad860b8933bc6e7e3c90cb2fa784b"
+    # for hash_value in test_hashes:
+    requests.get(f"http://localhost:8000/?hash={hash_value}")
+    print(f"Response status: {response.status_code}")
+    print(f"Cache status: {response.headers.get('X-Cache', 'UNKNOWN')}")
 
 if __name__ == "__main__":
     main()
